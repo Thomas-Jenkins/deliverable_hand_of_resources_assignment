@@ -152,6 +152,13 @@ describe('rarePlants routes', () => {
     expect(res.body.discovered_by).toEqual('Odoardo Beccari');
   });
 
+  it('DELETE /rarePlants/1 should delete the first entry in the rarePlants database', async () => {
+    const res = await request(app).delete('/rarePlants/1');
+    expect(res.status).toBe(204);
+    const getRes = await request(app).get('/rarePlants/1');
+    expect(getRes.status).toBe(404);
+  });
+
   afterAll(() => {
     pool.end();
   });
