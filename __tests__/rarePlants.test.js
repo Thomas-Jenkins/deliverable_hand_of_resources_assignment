@@ -145,6 +145,13 @@ describe('rarePlants routes', () => {
     `);
   });
 
+  it('PUT /rarePlants/1 should update the discovered_by value for the first entry in the rarePlants database', async () => {
+    const res = await request(app).put('/rarePlants/1').send({ plant_common_name: 'Corpse Flower', discovered_by: 'Odoardo Beccari' });
+    expect(res.status).toBe(200);
+    expect(res.body.plant_common_name).toEqual('Corpse Flower');
+    expect(res.body.discovered_by).toEqual('Odoardo Beccari');
+  });
+
   afterAll(() => {
     pool.end();
   });
