@@ -8,7 +8,7 @@ describe('rarePlants routes', () => {
     return setup(pool);
   });
 
-  it('/rarePlants should return a list of rare plants and the full name of the person who discovered it', async () => {
+  it('GET /rarePlants should return a list of rare plants and the full name of the person who discovered it', async () => {
     const res = await request(app).get('/rarePlants');
     expect(res.status).toBe(200);
     expect(res.body).toMatchInlineSnapshot(`
@@ -114,6 +114,18 @@ describe('rarePlants routes', () => {
           "plant_common_name": "Melanelia Lichen",
         },
       ]
+    `);
+  });
+
+  it('GET /rarePlants/1 should return a single detailed item from the rarePlants database', async () => {
+    const res = await request(app).get('/rarePlants/1');
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchInlineSnapshot(`
+      Object {
+        "discovered_by": "Adam Clemmensen",
+        "id": "1",
+        "plant_common_name": "Fleshy Lupine",
+      }
     `);
   });
 
