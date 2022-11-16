@@ -129,6 +129,22 @@ describe('rarePlants routes', () => {
     `);
   });
 
+  it('POST /rarePlants should create a new row in the rarePlants database', async () => {
+    const newRarePlant = {
+      plant_common_name: 'Nirnroot',
+      discovered_by: 'The Hero of Kavatch',
+    };
+    const res = await request(app).post('/rarePlants').send(newRarePlant);
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchInlineSnapshot(`
+      Object {
+        "discovered_by": "The Hero of Kavatch",
+        "id": "21",
+        "plant_common_name": "Nirnroot",
+      }
+    `);
+  });
+
   afterAll(() => {
     pool.end();
   });
