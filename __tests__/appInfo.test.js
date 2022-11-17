@@ -174,6 +174,13 @@ describe('appInfo routes', () => {
     expect(res.status).toBe(200);
   });
 
+  it('DELETE /appInfo/1 should delete a row in the appInfo database with the matching id', async () => {
+    const res = await request(app).delete('/appInfo/1');
+    expect(res.status).toBe(204);
+    const getRes = await request(app).get('/appInfo/1');
+    expect(getRes.status).toBe(404);
+  });
+
   afterAll(() => {
     pool.end();
   });
