@@ -147,6 +147,13 @@ describe('constructionStuff routes', () => {
     `);
   });
 
+  it('PUT /constructionStuff/1 should update the row with id 1', async () => {
+    const res = await request(app).put('/constructionStuff/1').send({ construction_equipment: 'Pickaxe', construction_role: 'Laborer' });
+    expect(res.status).toBe(200);
+  });
+
+ 
+
   afterAll(() => {
     pool.end();
   });
