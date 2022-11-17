@@ -117,9 +117,34 @@ describe('constructionStuff routes', () => {
     `);
   });
 
-  it('GET /constructionStuff/i should return a single item from the constructionStuff db with the id of 1', async () => {
+  it('GET /constructionStuff/1 should return a single item from the constructionStuff db with the id of 1', async () => {
     const res = await request(app).get('/constructionStuff/1');
     expect(res.status).toBe(200);
+    expect(res.body).toMatchInlineSnapshot(`
+      Object {
+        "construction_equipment": "Grader",
+        "construction_role": "Engineer",
+        "id": "1",
+      }
+    `);
+  });
+
+  it('POST /constructionStuff should insert a single row to the constructionStuff db', async () => {
+    const newConstructionStuff = {
+      construction_equipment: 'Shovel',
+      construction_role: 'Laborer',
+    };
+    const res = await request(app)
+      .post('/constructionStuff')
+      .send(newConstructionStuff);
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchInlineSnapshot(`
+      Object {
+        "construction_equipment": "Shovel",
+        "construction_role": "Shovel",
+        "id": "21",
+      }
+    `);
   });
 
   afterAll(() => {
