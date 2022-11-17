@@ -150,9 +150,10 @@ describe('constructionStuff routes', () => {
   it('PUT /constructionStuff/1 should update the row with id 1', async () => {
     const res = await request(app).put('/constructionStuff/1').send({ construction_equipment: 'Pickaxe', construction_role: 'Laborer' });
     expect(res.status).toBe(200);
+    const getRes = await request(app).get('/constructionStuff/1');
+    expect(getRes.body.construction_equipment).toEqual('Pickaxe');
+    expect(getRes.body.construction_role).toEqual('Laborer');
   });
-
- 
 
   afterAll(() => {
     pool.end();
