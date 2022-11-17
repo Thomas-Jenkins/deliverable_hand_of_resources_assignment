@@ -155,6 +155,13 @@ describe('constructionStuff routes', () => {
     expect(getRes.body.construction_role).toEqual('Laborer');
   });
 
+  it('DELETE /constructionStuff/1 should delete the first entry in the constructionStuff database', async () => {
+    const res = await request(app).delete('/constructionStuff/1');
+    expect(res.status).toBe(204);
+    const getRes = await request(app).get('/constructionStuff/1');
+    expect(getRes.status).toBe(404);
+  });
+
   afterAll(() => {
     pool.end();
   });
