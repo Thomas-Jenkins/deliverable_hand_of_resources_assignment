@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS rarePlants;
 DROP TABLE IF EXISTS constructionStuff;
+DROP TABLE IF EXISTS appInfo;
 
 CREATE TABLE rarePlants (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -67,3 +68,39 @@ VALUES
 ('Crawler', 'Surveyor'),
 ('Excavator', 'Construction Expeditor'),
 ('Compactor', 'Electrician');
+
+CREATE TABLE appInfo (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    app_name VARCHAR NOT NULL,
+    app_version VARCHAR NOT NULL,
+    app_url VARCHAR NOT NULL
+);
+
+INSERT INTO appInfo (
+    app_name,
+    app_version,
+    app_url
+)
+VALUES 
+('Bytecard', '7.3.7', 'Nunc.xls'),
+('Yoloswarm', '0.7.7', 'Justo.mov'),
+('Prodder', '8.1.8', 'IpsumDolor.ppt'),
+('Transcof', '0.4.4', 'UltricesPosuereCubilia.avi'),
+('It', '9.1.2', 'NullamVariusNulla.xls'),
+('Tampflex', '0.83', 'Convallis.pdf'),
+('Quo Lux', '0.4.4', 'HacHabitassePlatea.mp3'),
+('Cookley', '3.1.0', 'Eget.mov'),
+('Lotlux', '1.6.9', 'MiIntegerAc.png'),
+('Zontrax', '8.91', 'PellentesqueAt.ppt'),
+('Bitchip', '0.95', 'Ultrices.ppt'),
+('Transcof', '9.4.9', 'SuspendissePotentiNullam.avi'),
+('Keylex', '7.7', 'Eget.xls'),
+('Andalax', '0.76', 'NibhLigulaNec.ppt'),
+('Zathin', '0.4.7', 'MolestieHendrerit.avi'),
+('Stim', '1.24', 'Semper.ppt'),
+('Tres-Zap', '3.4', 'LigulaSuspendisse.gif'),
+('Daltfresh', '2.32', 'NislNunc.mp3'),
+('Vagram', '0.21', 'ImperdietSapienUrna.xls'),
+('Holdlmabere', '0.21', 'ConvallisNuncProin.mpeg');
+
+
