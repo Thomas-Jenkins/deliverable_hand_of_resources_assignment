@@ -150,6 +150,24 @@ describe('appInfo routes', () => {
     `);
   });
 
+  it('POST /appInfo should create a new row in the appInfo database', async () => {
+    const newAppInfo = {
+      app_name: 'Art Viewer',
+      app_url: 'a5p4p0viewer.xls',
+      app_version: '0.02.1',
+    };
+    const res = await request(app).post('/appInfo').send(newAppInfo);
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchInlineSnapshot(`
+      Object {
+        "app_name": "Art Viewer",
+        "app_url": "a5p4p0viewer.xls",
+        "app_version": "0.02.1",
+        "id": "21",
+      }
+    `);
+  });
+
   afterAll(() => {
     pool.end();
   });
