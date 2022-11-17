@@ -158,6 +158,26 @@ describe('rarePlants routes', () => {
     };
     const res = await request(app).post('/groceryList').send(newGroceryList);
     expect(res.status).toBe(200);
+    expect(res.body).toMatchInlineSnapshot(`
+      Object {
+        "first_name": "Thomas",
+        "id": "21",
+        "last_name": "Jenkins",
+        "product": "Tacos",
+      }
+    `);
+  });
+
+  it('PUT /groceryList/1 should update the row in the groceryList database', async () => {
+    const res = await request(app).put('/groceryList/1').send({
+      first_name: 'Tommy',
+      last_name: 'Bahama',
+      product: 'Crown Royal',
+    });
+    expect(res.status).toBe(200);
+    expect(res.body.first_name).toEqual('Tommy');
+    expect(res.body.last_name).toEqual('Bahama');
+    expect(res.body.product).toEqual('Crown Royal');
   });
 
   afterAll(() => {
