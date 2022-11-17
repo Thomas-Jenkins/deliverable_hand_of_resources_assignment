@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS rarePlants;
 DROP TABLE IF EXISTS constructionStuff;
 DROP TABLE IF EXISTS appInfo;
+DROP TABLE IF EXISTS groceryList;
 
 CREATE TABLE rarePlants (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -103,4 +104,37 @@ VALUES
 ('Vagram', '0.21', 'ImperdietSapienUrna.xls'),
 ('Holdlmabere', '0.21', 'ConvallisNuncProin.mpeg');
 
+CREATE TABLE groceryList (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name VARCHAR NOT NULL,
+    last_name VARCHAR NOT NULL,
+    product VARCHAR NOT NULL
+);
 
+INSERT INTO groceryList (
+    first_name,
+    last_name,
+    product
+)
+
+VALUES
+('Annabel', 'Wands', 'Sage Ground Wiberg'),
+('Sigfried', 'Gammell', 'Veal - Insides Provini'),
+('Werner', 'Guilloux', 'Peas Snow'),
+('Nettle', 'Antley', 'Salmon Steak - Cohoe 6 Oz'),
+('Constantino', 'Jeanes', 'Pesto - Primerba Paste'),
+('Maribel', 'Jansky', 'Nut - Chestnuts Whole'),
+('Alisha', 'Leith-Harvey', 'Coffee - Ristretto Coffee Capsule'),
+('Johnathan', 'Endley', 'Rabbit - Saddles'),
+('Den', 'Croom', 'Sprouts - Pea'),
+('Gerrilee', 'Sugar', 'Muffin Orange Individual'),
+('Karee', 'Beardsall', 'Chocolate - Milk Callets'),
+('Nobie', 'Pawelski', 'Juice - Happy Planet'),
+('Whitman', 'Mebs', 'Cake Paprus'),
+('Janith', 'Sponer', 'Sardines'),
+('Avigdor', 'Anselmi', 'Tart - Pecan Butter Squares'),
+('Teodora', 'Forward', 'Juice - Lime'),
+('Phedra', 'Kilmurry', 'Sauce Bbq Smokey'),
+('Amery', 'Kaysor', 'Cookies - Assorted'),
+('Brita', 'Clay', 'Rice - Long Grain'),
+('Bethany', 'Albrooke', 'Wine - Vineland Estate Semi - Dry');
