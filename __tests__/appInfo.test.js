@@ -168,6 +168,12 @@ describe('appInfo routes', () => {
     `);
   });
 
+  it('PUT /appInfo/1 should update a row in the appInfo database with the matching id', async () => {
+    const res = await request(app).put('/appInfo/1').send({
+      app_name: 'Bissell Pet', app_url: 'bisselisthebest.com', app_version: '145.09.2' });
+    expect(res.status).toBe(200);
+  });
+
   afterAll(() => {
     pool.end();
   });
