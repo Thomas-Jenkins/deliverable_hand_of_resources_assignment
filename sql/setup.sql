@@ -1,9 +1,7 @@
 -- Use this file to define your SQL tables
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS rarePlants;
-
-
-
+DROP TABLE IF EXISTS constructionStuff;
 
 CREATE TABLE rarePlants (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -36,3 +34,36 @@ VALUES
 ('Porters Melicgrass', 'Ingaberg Divill'),
 ('Pumpellys Brome', 'Jeana Romanski'),
 ('Melanelia Lichen', 'Cecil McQuilliam');
+
+CREATE TABLE constructionStuff (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    construction_equipment VARCHAR NOT NULL,
+    construction_role VARCHAR NOT NULL
+);
+
+INSERT INTO constructionStuff (
+    construction_equipment,
+    construction_role
+)
+
+VALUES
+('Grader', 'Engineer'),
+('Scraper', 'Electrician'),
+('Crawler', 'Estimator'),
+('Compactor', 'Subcontractor'),
+('Compactor', 'Engineer'),
+('Bulldozer', 'Subcontractor'),
+('Dragline', 'Project Manager'),
+('Dragline', 'Subcontractor'),
+('Trencher', 'Supervisor'),
+('Bulldozer', 'Construction Foreman'),
+('Dragline', 'Construction Foreman'),
+('Backhoe', 'Construction Worker'),
+('Backhoe', 'Supervisor'),
+('Dump Truck', 'Project Manager'),
+('Crawler', 'Surveyor'),
+('Bulldozer', 'Construction Manager'),
+('Dragline', 'Construction Worker'),
+('Crawler', 'Surveyor'),
+('Excavator', 'Construction Expeditor'),
+('Compactor', 'Electrician');
