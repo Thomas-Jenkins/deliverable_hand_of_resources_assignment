@@ -180,6 +180,13 @@ describe('rarePlants routes', () => {
     expect(res.body.product).toEqual('Crown Royal');
   });
 
+  it('DELETE /groceryList/1 should delete the first entry in the database', async () => {
+    const res = await request(app).delete('/groceryList/1');
+    expect(res.status).toBe(204);
+    const getRes = await request(app).get('/groceryList/1');
+    expect(getRes.status).toBe(404);
+  });
+
   afterAll(() => {
     pool.end();
   });
