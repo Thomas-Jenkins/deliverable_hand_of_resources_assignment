@@ -144,13 +144,13 @@ CREATE TABLE randomStuff (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     column_one VARCHAR NOT NULL,
     column_two VARCHAR NOT NULL,
-    coumne_three VARCHAR NOT NULL 
+    column_three VARCHAR NOT NULL 
 );
 
 INSERT INTO randomStuff (
     column_one,
     column_two,
-    coumne_three
+    column_three
 )
 
 VALUES 
