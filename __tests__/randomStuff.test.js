@@ -114,6 +114,21 @@ describe('rarePlants routes', () => {
     `);
   });
 
+  it('PUT /randomStuff/1 should update the discovered_by value for the first entry in the randomStuff database', async () => {
+    const res = await request(app).put('/randomStuff/1').send({ column_one: 'New Mexico', column_two: 'Albuquerque', column_three: 'Left Turn' });
+    expect(res.status).toBe(200);
+    expect(res.body.column_one).toEqual('New Mexico');
+    expect(res.body.column_two).toEqual('Albuquerque');
+    expect(res.body.column_three).toEqual('Left Turn');
+  });
+
+  it('DELETE /randomStuff/1 should delete the first entry in the randomStuff database', async () => {
+    const res = await request(app).delete('/randomStuff/1');
+    expect(res.status).toBe(204);
+    const getRes = await request(app).get('/randomStuff/1');
+    expect(getRes.status).toBe(404);
+  });
+
   afterAll(() => {
     pool.end();
   });
