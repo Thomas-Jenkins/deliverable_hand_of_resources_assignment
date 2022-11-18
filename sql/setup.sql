@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS rarePlants;
 DROP TABLE IF EXISTS constructionStuff;
 DROP TABLE IF EXISTS appInfo;
 DROP TABLE IF EXISTS groceryList;
+DROP TABLE IF EXISTS randomStuff;
 
 CREATE TABLE rarePlants (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -138,3 +139,29 @@ VALUES
 ('Amery', 'Kaysor', 'Cookies - Assorted'),
 ('Brita', 'Clay', 'Rice - Long Grain'),
 ('Bethany', 'Albrooke', 'Wine - Vineland Estate Semi - Dry');
+
+CREATE TABLE randomStuff (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    column_one VARCHAR NOT NULL,
+    column_two VARCHAR NOT NULL,
+    coumne_three VARCHAR NOT NULL 
+);
+
+INSERT INTO randomStuff (
+    column_one,
+    column_two,
+    coumne_three
+)
+
+VALUES 
+('Russia', 'Leninskiy', 'Daily'),
+('Philippines', 'Villanueva', 'Yearly'),
+('Russia', 'Severomorsk', 'Yearly'),
+('Guatemala', 'Lívingston', 'Once'),
+('Azerbaijan', 'Sheki', 'Daily'),
+('Philippines', 'Sapol', 'Monthly'),
+('Uganda', 'Yumbe', 'Weekly'),
+('Vietnam', 'Trới', 'Seldom'),
+('Poland', 'Doruchów', 'Never'),
+('Japan', 'Ryūgasaki', 'Often'),
+('Poland', 'Subkowy', 'Seldom');
